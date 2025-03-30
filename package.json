@@ -6,8 +6,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "type": "module",
   "scripts": {
-    "start": "wp-scripts start",
+    "start": "wp-scripts start --hot",
     "build": "wp-scripts build"
   },
   "devDependencies": {
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@inertiajs/react": "^2.0.5",
-    "@wordpress/dom-ready": "^4.20.0"
+    "@wordpress/dom-ready": "^4.20.0",
+    "webpack-dev-server": "^4.15.1"
   }
 }

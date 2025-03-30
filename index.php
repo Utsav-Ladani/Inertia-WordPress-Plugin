@@ -81,6 +81,20 @@ function inertia_enqueue_assets() {
         ]
     );
 
+    $is_development = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG;
+
+    if ($is_development) {
+        $runtime_asset_file = include plugin_dir_path(__FILE__) . 'build/runtime.asset.php';
+
+        wp_enqueue_script(
+            'inertia-runtime',
+            plugins_url('build/runtime.js', __FILE__),
+            $runtime_asset_file['dependencies'],
+            $runtime_asset_file['version'],
+            true
+        );
+    }
+
     wp_enqueue_style('inertia-styles', plugins_url('build/index.css', __FILE__));
 }
 add_action('admin_enqueue_scripts', __NAMESPACE__ . '\inertia_enqueue_assets');
