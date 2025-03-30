@@ -29,9 +29,26 @@ class HomePage extends AbstractPage {
             'pages' => [
                 [
                     'name' => 'Posts',
-                    'url'  => wp_make_link_relative($this->base_url . '/posts'),
+                    'url'  => $this->base_url . '&inertia_page=posts',
                 ],
             ],
+            'user' => $this->getUser(),
+        ];
+    }
+
+    /**
+     * Get the user for this page
+     *
+     * @return array
+     */
+    public function getUser(): array {
+        $user = wp_get_current_user();
+
+        return [
+            'id'    => $user->ID,
+            'name'  => $user->display_name,
+            'email' => $user->user_email,
+            'avatar' => get_avatar_url($user->ID),
         ];
     }
 }

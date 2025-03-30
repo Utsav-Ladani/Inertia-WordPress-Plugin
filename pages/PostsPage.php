@@ -25,16 +25,9 @@ class PostsPage extends AbstractPage {
      * @return array
      */
     public function getProps(): array {
-        $posts = get_posts(
-            [
-                'post_type' => 'post',
-                'posts_per_page' => 10,
-            ]
-        );
-
         return [
-            'posts' => $posts,
-            'homeURL' => wp_make_link_relative($this->base_url),
+            'posts'   => $this->getPosts(),
+            'homeURL' => $this->base_url,
         ];
     }
 
@@ -44,6 +37,28 @@ class PostsPage extends AbstractPage {
      * @return string
      */
     public function getUrl(): string {
-        return $this->base_url . '/posts';
+        return $this->base_url . '&inertia_page=posts';
+    }
+
+    /**
+     * Get the posts for this page
+     *
+     * @return array
+     */
+    public function getPosts() {
+        $raw_posts = get_posts(
+            [
+                'post_type' => 'post',
+                'posts_per_page' => 10,
+            ]
+        );
+
+        return array_map(function ($post) {
+            return [
+                'id'    => $post->ID,
+                'title' => $post->post_title,
+                'date'  => $post->post_date,
+            ];
+        }, $raw_posts);
     }
 }

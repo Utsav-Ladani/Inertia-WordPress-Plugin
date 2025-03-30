@@ -15,6 +15,7 @@
     grid-template-columns: 1fr auto;
     gap: 1rem;
     align-items: center;
+    margin: 0;
 
     &:has(+ .post) {
         border-bottom: 1px solid #ccc;
@@ -37,4 +38,37 @@
     font-size: 1rem;
     color: #888888;
     text-transform: capitalize;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    border: 1px solid #888888;
+    padding: 1rem;
+    border-radius: .4rem;
+    background-color: #f6f6f6;
+    width: fit-content;
+    margin: 1rem auto;
+
+    > * {
+        margin: 0;
+    }
+}
+
+.user__avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.user__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.user__email {
+    font-size: .8rem;
 }

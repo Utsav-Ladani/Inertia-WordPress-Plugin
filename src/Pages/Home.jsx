@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
+import User from '../Components/User';
 
-export default function Home({ pages }) {
-    console.log(pages);
+export default function Home({ pages, user }) {
     return (
         <div>
             <h1>Home</h1>
@@ -9,6 +9,7 @@ export default function Home({ pages }) {
             {pages.map((page) => (
                 <Link key={page.name} href={page.url}>{page.name}</Link>
             ))}
+            <User user={user} />
         </div>
     );
 }
