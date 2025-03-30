@@ -24,9 +24,7 @@ A demonstration plugin that showcases how to integrate React.js with WordPress u
    npm run build
    ```
 6. Activate the plugin through the 'Plugins' menu in WordPress
-7. Access the demo pages through this endpoint:
-   - Home page: `/inertia/v2`
-   - Posts page: `/inertia/v2/posts`
+7. Visit `/wp-admin/admin.php?page=inertia` to see the demo pages
 
 ## License
 
