@@ -8,15 +8,22 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "wp-scripts start --hot",
-    "build": "wp-scripts build"
+    "start:js": "wp-scripts start --hot",
+    "start:css": "tailwindcss -i ./build/index.css -o ./build/main.css -w",
+    "start": "npm run start:js & npm run start:css",
+    "build:js": "wp-scripts build",
+    "build:css": "tailwindcss -i ./build/index.css -o ./build/main.css",
+    "build": "npm run build:js & npm run build:css"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.0.17",
+    "@tailwindcss/postcss": "^4.0.17",
     "@wordpress/scripts": "^30.13.0"
   },
   "dependencies": {
     "@inertiajs/react": "^2.0.5",
     "@wordpress/dom-ready": "^4.20.0",
+    "tailwindcss": "^4.0.17",
     "webpack-dev-server": "^4.15.1"
   }
 }

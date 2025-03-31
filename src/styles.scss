@@ -1,3 +1,5 @@
+@use 'tailwindcss';
+
 .posts {
     list-style: none;
     padding: 0;
@@ -20,14 +22,11 @@
     &:has(+ .post) {
         border-bottom: 1px solid #ccc;
     }
-
-    &:hover {
-        background-color: #e0e0e0;
-    }
 }
 
 .post__title {
     margin: 0;
+    color: unset;
 }
 
 .post__date {

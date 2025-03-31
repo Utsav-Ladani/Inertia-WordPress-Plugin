@@ -95,7 +95,7 @@ function inertia_enqueue_assets() {
         );
     }
 
-    wp_enqueue_style('inertia-styles', plugins_url('build/index.css', __FILE__));
+    wp_enqueue_style('inertia-styles', plugins_url('build/main.css', __FILE__));
 }
 add_action('admin_enqueue_scripts', __NAMESPACE__ . '\inertia_enqueue_assets');
 

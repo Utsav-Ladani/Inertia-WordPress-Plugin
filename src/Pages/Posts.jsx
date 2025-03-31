@@ -24,7 +24,7 @@ function PostsList({ posts }) {
 function Post({ post }) {
     console.log(post);
     return (
-        <li className="post">
+        <li className="post hover:bg-blue-500 hover:text-white">
             <div className="col">
                 <h3 className="post__title">{post.title}</h3>
                 <span className="post__date">{post.date}</span>
